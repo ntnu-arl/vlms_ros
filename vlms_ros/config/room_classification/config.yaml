@@ -1,0 +1,13 @@
+---
+model:
+  type: openai
+  log: true
+  model: gpt-4o
+  # Local vLLM example:
+  # type: vllm
+  # log: true
+  # client_config:
+  #   model: RedHatAI/gemma-3-12b-it-quantized.w4a16
+  #   base_url: http://127.0.0.1:8000/v1
+  #   api_key: not-needed
+  #   use_system_message: false

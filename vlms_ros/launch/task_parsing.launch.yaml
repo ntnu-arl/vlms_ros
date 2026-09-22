@@ -1,0 +1,39 @@
+---
+launch:
+  # Python environment
+  - arg:
+      name: python_env
+      default: /developer/semantics_env/bin/python3
+      description: Path to Python executable in the virtualenv
+  # Configuration file
+  - arg:
+      name: config_path_tp
+      default: $(find-pkg-share vlms_ros)/config/task_parsing/config.yaml
+      description: Configuration file task parsing model
+
+  # System prompt file and examples file
+  - arg:
+      name: system_prompt_path_tp
+      default: $(find-pkg-share vlms_ros)/config/task_parsing/system_prompt.txt
+      description: Path to system prompt text file
+  - arg:
+      name: examples_path_tp
+      default: $(find-pkg-share vlms_ros)/config/task_parsing/examples.txt
+      description: Path to examples text file
+  - node:
+      pkg: vlms_ros
+      exec: task_parsing_node.py
+      name: task_parsing_node
+      namespace: task_parsing
+      on_exit: shutdown
+      launch-prefix: $(var python_env)
+      output: screen
+      param:
+        - name: config_path
+          value: $(var config_path_tp)
+        - name: config
+          type: str
+          value: |-
+            model:
+              system_prompt_path: $(var system_prompt_path_tp)
+              examples_path: $(var examples_path_tp)

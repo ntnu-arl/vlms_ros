@@ -1,0 +1,39 @@
+---
+launch:
+  # Python environment
+  - arg:
+      name: python_env
+      default: /developer/semantics_env/bin/python3
+      description: Path to Python executable in the virtualenv
+  # Configuration file
+  - arg:
+      name: config_path_rc
+      default: $(find-pkg-share vlms_ros)/config/room_classification/config.yaml
+      description: Configuration file room classification model
+
+  # System prompt file and examples file
+  - arg:
+      name: system_prompt_path_rc
+      default: $(find-pkg-share vlms_ros)/config/room_classification/system_prompt.txt
+      description: Path to system prompt text file
+  - arg:
+      name: examples_path_rc
+      default: $(find-pkg-share vlms_ros)/config/room_classification/examples.txt
+      description: Path to examples text file
+  - node:
+      pkg: vlms_ros
+      exec: room_classification_node.py
+      name: room_classification_node
+      namespace: room_classification
+      on_exit: shutdown
+      launch-prefix: $(var python_env)
+      output: screen
+      param:
+        - name: config_path
+          value: $(var config_path_rc)
+        - name: config
+          type: str
+          value: |-
+            model:
+              system_prompt_path: $(var system_prompt_path_rc)
+              examples_path: $(var examples_path_rc)

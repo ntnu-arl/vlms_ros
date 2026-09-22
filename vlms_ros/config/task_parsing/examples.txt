@@ -1,0 +1,71 @@
+Here is a list of example questions and their expected parsing:
+
+Question 1: What is the green object in the left of the garage?
+{
+"target_objects": ["green object"],
+"target_rooms": ["garage"],
+"relevant_objects": ["green object", "trash bin", "hose", "toolbox", "bicycle", "ladder", "box", "bag", "shovel", "bucket"]
+}
+
+Question 2: What is the bin with the yellow lid?
+{
+"target_objects": ["bin"],
+"target_rooms": ["garage", "kitchen"],
+"relevant_objects": ["bin", "trash"]
+}
+
+Question 3: What color is the car?
+{
+"target_objects": ["car"],
+"target_rooms": ["garage"],
+"relevant_objects": ["car"]
+}
+
+Question 4: What material is the floor?
+{
+"target_objects": ["floor"],
+"target_rooms": [],
+"relevant_objects": ["floor"]
+}
+
+Question 5: What is on the top shelf to the right side of the garage?
+{
+"target_objects": ["shelf"],
+"target_rooms": ["garage"],
+"relevant_objects": ["shelf", "box", "paint cans", "cooler", "toolbox", "tools"]
+}
+
+Question 6: What is the grey item on the bed?
+{
+"target_objects": ["bed"],
+"target_rooms": ["bedroom"],
+"relevant_objects": ["bed", "pillow", "blanket", "clothes", "toy"]
+}
+
+Question 7: What material are the stools in the kitchen made out of?
+{
+"target_objects": ["stool"],
+"target_rooms": ["kitchen"],
+"relevant_objects": ["stool", "countertop", "table", "sink", "stove"]
+}
+
+Question 8: Where do I reach for laundry detergent?
+{
+"target_objects": ["detergent"],
+"target_rooms": ["kitchen", "laundy room", "bathroom"],
+"relevant_objects": ["detergent", "washing machine", "dryer", "clothes", "shelf"]
+}
+
+Question 9: Is the toilet seat open or closed?
+{
+"target_objects": ["toilet"],
+"target_rooms": ["bathroom"],
+"relevant_objects": ["toilet", "shower", "sink"]
+}
+
+Question 10: Is the television turned on or off?
+{
+"target_objects": ["television"],
+"target_rooms": ["living room", "kitchen", "bedroom"],
+"relevant_objects": ["television", "sofa", "bed", "table", "armchair"]
+}

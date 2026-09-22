@@ -1,0 +1,4 @@
+openai==2.14.0
+google-genai
+llama-api-client
+anthropic
