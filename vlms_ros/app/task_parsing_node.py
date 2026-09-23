@@ -31,6 +31,7 @@
 #
 """Node that runs task parsing."""
 
+import os
 import pathlib
 from dataclasses import dataclass
 from typing import Any
@@ -83,7 +84,9 @@ class TaskParsingNode(Node):
         self._model = self.config.model.create()
         self.get_logger().info(f"Initializing with {self.config.show()}")
 
-        device = models.default_device(cuda_device=0)
+        device = os.environ.get("HFLEX_EQA_QUERY_DEVICE") or models.default_device(
+            cuda_device=0
+        )
         self._embedding_model = self.config.embedding_model.create().to(device)
         self._parsing_pub = self.create_publisher(TaskParsingOutput, "output", 1)
         self._new_labels_pub = self.create_publisher(NewLabels, "new_labels", 1)
