@@ -29,7 +29,7 @@ Backend support is task-specific:
 | Task Parsing | Yes | No | No | No | Yes |
 | EQA Planning | Yes | Yes | Yes | Yes | Yes |
 
-The EQA planner model wrappers live in `vlms_python` and are consumed by downstream planner configurations, such as `hvlm_planner`.
+The EQA planner model wrappers live in `vlms_python` and are consumed by downstream planner configurations, such as `hflex_eqa`.
 
 ### Implemented Tasks
 
